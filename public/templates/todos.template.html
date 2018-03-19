@@ -1,3 +1,14 @@
+<button ng-click="$ctrl.addOne()">Add</button>
+
 <div ng-repeat="todo in $ctrl.todos">
-    <span ng-bind="todo.description"></span>
+    <input type="checkbox" ng-model="todo.isDone">
+    <span 
+        ng-bind="todo.description"
+        ng-class="{'done-todo': todo.isDone}"
+    >
+    </span>
+    <span> 
+        Created at {{$ctrl.formatTodoDate(todo.createdAt)}}
+    </span>
+   
 </div>
