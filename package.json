@@ -1,0 +1,39 @@
+{
+  "name": "front_camp_angular",
+  "version": "1.0.0",
+  "description": "Bunch of tasks for the front camp program",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artsiomshushkevich/front_camp_angular.git"
+  },
+  "keywords": [
+    "angular",
+    "gulp",
+    "javascript"
+  ],
+  "author": "Artsiom Shushkevich <artemshushkevich@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artsiomshushkevich/front_camp_angular/issues"
+  },
+  "homepage": "https://github.com/artsiomshushkevich/front_camp_angular#readme",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.15",
+    "angular": "^1.6.9"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.2.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-webserver": "^0.9.1"
+  }
+}
