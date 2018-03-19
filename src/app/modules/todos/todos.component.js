@@ -5,6 +5,14 @@
         self.$onInit = () => {
             self.todos = todosService.getAll();
         };
+
+        self.addOne = () => {
+
+        }
+
+        self.formatTodoDate = (date) => {
+            return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`;
+        }
     }
 
     TodosController.$inject = ['todosService'];
