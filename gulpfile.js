@@ -13,9 +13,10 @@ const plumberConfig = {
 };
 
 gulp.task('scripts', function() {
-  return gulp.src(['./node_modules/**/angular.min.js',
-                   './src/**/app.js', 
-                   './src/app/**/*.js'
+  return gulp.src([
+        './node_modules/**/angular.min.js',
+        './src/**/app.js', 
+        './src/app/**/*.js'
     ])
     .pipe(plumber(plumberConfig))
     .pipe(babel({
@@ -27,8 +28,14 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('./public/js'));
 });
 
+gulp.task('styles', function() {
+    return gulp.src('./src/styles/main.css')
+        .pipe(gulp.dest('./public/css'));
+  });
+
 gulp.task('watch', function() {
-  gulp.watch('./src/scripts/**/*.js', ['scripts']);
+    gulp.watch('./src/scripts/**/*.js', ['scripts']);
+    gulp.watch('./src/styles/**/*.css', ['styles']);
 });
 
 gulp.task('server', function() {
