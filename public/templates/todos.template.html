@@ -1,6 +1,14 @@
-<button ng-click="$ctrl.addOne()">Add</button>
+<div>
+    <button ng-click="$ctrl.addOne()">Add</button>
+</div>
 
-<div ng-repeat="todo in $ctrl.todos">
+<div>
+    <button ng-click="$ctrl.resetSort()">Reset</button>
+    <button ng-click="$ctrl.sortBy('description')">By name</button>
+    <button ng-click="$ctrl.sortBy('createdAt')">By date</button>
+</div>
+
+<div ng-repeat="todo in $ctrl.todos | orderBy:$ctrl.fieldName:$ctrl.reverse">    
     <input type="checkbox" ng-model="todo.isDone">
     <span 
         ng-bind="todo.description"
@@ -10,5 +18,6 @@
     <span> 
         Created at {{$ctrl.formatTodoDate(todo.createdAt)}}
     </span>
-   
+    <button ng-click="$ctrl.deleteOne($index)">Delete</button>
+    <button ng-click="$ctrl.updateOne($index)">Update</button>
 </div>

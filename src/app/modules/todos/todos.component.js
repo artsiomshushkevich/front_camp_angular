@@ -4,10 +4,27 @@
 
         self.$onInit = () => {
             self.todos = todosService.getAll();
+
+            self.fieldName = null;
+            self.reverse = false
         };
 
         self.addOne = () => {
 
+        }; 
+
+        self.updateOne = () => {
+
+        };
+
+        self.sortBy = (fieldName) => {
+            self.reverse = (self.fieldName === fieldName) ? !self.reverse : false;
+            self.fieldName = fieldName;
+        };
+
+        self.resetSort = () => {
+            self.fieldName = null;
+            self.reverse = false
         }
 
         self.formatTodoDate = (date) => {
