@@ -10,7 +10,7 @@
         };
 
         self.addOne = () => {
-
+            
         }; 
 
         self.updateOne = () => {
@@ -41,7 +41,7 @@
     angular
         .module('myAwesomeTodos')
         .component('todos', {
-            templateUrl: '../templates/todos.template.html',
+            templateUrl: '../templates/todos/todos.template.html',
             controller: TodosController
         });
 })(window.angular);
