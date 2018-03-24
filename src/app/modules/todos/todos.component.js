@@ -3,8 +3,13 @@
         const self = this;
 
         self.$onInit = () => {
-            self.todos = todosService.getAll();
-
+            if (!todosService.getAll()) {
+                todosService.init()
+                    .then(todos => self.todos = todos);
+            } else {
+                self.todos = todosService.getAll();
+            }
+            
             self.fieldName = null;
             self.reverse = false
         };
@@ -45,5 +50,6 @@
         .component('todos', {
             templateUrl: '../templates/todos/todos.template.html',
             controller: TodosController
+            
         });
 })(window.angular);

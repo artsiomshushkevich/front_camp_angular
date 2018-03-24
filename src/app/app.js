@@ -6,7 +6,7 @@
             { 
                 name: 'home', 
                 url: '/todos', 
-                component: 'todos' 
+                component: 'todos'
             },
             {
                 name: 'add',
@@ -34,7 +34,8 @@
 
     config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
-    angular
-        .module('myAwesomeTodos', ['ui.router'])
+    const app = angular
+        .module('myAwesomeTodos', ['ui.router', 'ngResource'])
         .config(config);
+          
 })(window.angular);

@@ -1,31 +1,23 @@
 (function(angular) {
-    function todosService() {   
-        let todos = [
-            {
-                id: 0,
-                isDone: false,
-                description: 'buy bread',
-                createdAt: new Date('12-10-2017')
-            },
-            {
-                id: 1,
-                isDone: false,
-                description: 'do homework',
-                createdAt: new Date('12-15-2017')
-            },
-            {
-                id: 2,
-                isDone: true,
-                description: 'clean dishes',
-                createdAt: new Date('12-18-2017')
-            }
-        ];
+    function todosService($resource) {   
+        let todos = null;
 
         const generateId = function() {
             return todos.length;
         };
 
         return {
+            init: function() {
+                return $resource('/data/todos.json').query({})
+                    .$promise.then((response) => {
+                        todos = response.map((todo) => {
+                            todo.createdAt = new Date(todo.createdAt);
+                            return todo;
+                        });
+
+                        return todos;
+                    });
+            },
             getAll: function() {
                 return todos;
             },
@@ -59,7 +51,7 @@
         };
     }
     
-    todosService.$inject = [];
+    todosService.$inject = ['$resource'];
 
     angular
         .module('myAwesomeTodos')

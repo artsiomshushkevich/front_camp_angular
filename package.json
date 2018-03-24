@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/artsiomshushkevich/front_camp_angular#readme",
   "dependencies": {
-    "angular": "^1.6.9"
+    "angular": "^1.6.9",
+    "angular-resource": "^1.6.9"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
