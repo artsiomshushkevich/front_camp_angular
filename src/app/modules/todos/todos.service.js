@@ -34,7 +34,7 @@
                 todos.splice(indexOfDeletedTodo, 1);
             },
             addOne: function(description) {
-                var id = _generateId();
+                var id = generateId();
                 todos.push({
                     id: generateId(),
                     isDone: false,

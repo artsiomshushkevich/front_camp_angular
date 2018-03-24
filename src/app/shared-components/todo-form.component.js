@@ -1,7 +1,9 @@
 (function(angular) {
     function TodoFormController() {
-        $ctrl.submit = function() {
+        const self = this;
 
+        self.submit = () => {
+            self.onSubmit({description: self.description});
         };
     }
 
@@ -10,7 +12,11 @@
     angular
         .module('myAwesomeTodos')
         .component('todoForm', {
+
             templateUrl: '../templates/shared-components/todo-form.template.html',
-            controller: TodoFormController
+            controller: TodoFormController,
+            bindings: {
+                onSubmit: '&'
+            }
         });
 })(window.angular);

@@ -13,7 +13,7 @@
             $state.go('add');
         }; 
 
-        self.updateOne = () => {
+        self.updateOne = (id) => {
 
         };
 
