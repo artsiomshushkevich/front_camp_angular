@@ -14,7 +14,9 @@
         }; 
 
         self.updateOne = (id) => {
-
+            $state.go('update', {
+                todoId: id
+            });
         };
 
         self.deleteOne = (id) => {

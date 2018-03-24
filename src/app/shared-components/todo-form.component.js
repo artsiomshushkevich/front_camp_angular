@@ -12,10 +12,10 @@
     angular
         .module('myAwesomeTodos')
         .component('todoForm', {
-
             templateUrl: '../templates/shared-components/todo-form.template.html',
             controller: TodoFormController,
             bindings: {
+                description: '<',
                 onSubmit: '&'
             }
         });

@@ -5,13 +5,23 @@
         var states = [
             { 
                 name: 'home', 
-                url: '/', 
+                url: '/todos', 
                 component: 'todos' 
             },
             {
                 name: 'add',
-                url: '/add-todo',
-                component: 'addTodoForm'
+                url: '/todos/add',
+                component: 'addTodo'
+            },
+            {
+                name: 'update',
+                url: '/todos/{todoId}/update',
+                component: 'updateTodo',
+                resolve: {
+                    todo: ['todosService', '$transition$', (todosService, $transition$) => {
+                        return todosService.getOne(+$transition$.params().todoId);
+                    }]
+                }
             }
         ];
 
@@ -19,7 +29,7 @@
             $stateProvider.state(state);
         });
 
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/todos');
     }
 
     config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];

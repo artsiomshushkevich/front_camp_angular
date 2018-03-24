@@ -1,5 +1,5 @@
 (function(angular) {
-    function AddTodoFormController(todosService, $state) {
+    function AddTodoController(todosService, $state) {
         const self = this;
 
         self.submit = (description) => {
@@ -8,12 +8,12 @@
         };
     }
 
-    AddTodoFormController.$inject = ['todosService', '$state'];
+    AddTodoController.$inject = ['todosService', '$state'];
 
     angular
         .module('myAwesomeTodos')
-        .component('addTodoForm', {
-            templateUrl: '../templates/todos/add-todo-form.template.html',
-            controller: AddTodoFormController
+        .component('addTodo', {
+            templateUrl: '../templates/todos/add-todo.template.html',
+            controller: AddTodoController
         });
 })(window.angular);

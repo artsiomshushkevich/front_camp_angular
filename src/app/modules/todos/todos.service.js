@@ -29,8 +29,18 @@
             getAll: function() {
                 return todos;
             },
+            getOne: function(id) {
+                const todoIndex = todos
+                    .map(todo => todo.id)
+                    .indexOf(id);
+                
+                    return todoIndex >= 0 ? todos[todoIndex] : null;
+            },
             deleteOne: function(id) {
-                const indexOfDeletedTodo = todos.indexOf(id);
+                const indexOfDeletedTodo = todos
+                    .map(todo => todo.id)
+                    .indexOf(id);
+
                 todos.splice(indexOfDeletedTodo, 1);
             },
             addOne: function(description) {
@@ -41,6 +51,10 @@
                     description: description,
                     createdAt: new Date()
                 });
+            },
+            updateOne: function(id, description) {
+                const todo = todos.find(todo => todo.id === id);
+                todo.description = description;
             }
         };
     }
