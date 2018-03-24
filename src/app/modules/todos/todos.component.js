@@ -1,5 +1,5 @@
 (function(angular) {
-    function TodosController(todosService) {
+    function TodosController(todosService, $state) {
         const self = this;
 
         self.$onInit = () => {
@@ -10,7 +10,7 @@
         };
 
         self.addOne = () => {
-            
+            $state.go('add');
         }; 
 
         self.updateOne = () => {
@@ -36,7 +36,7 @@
         };
     }
 
-    TodosController.$inject = ['todosService'];
+    TodosController.$inject = ['todosService', '$state'];
 
     angular
         .module('myAwesomeTodos')

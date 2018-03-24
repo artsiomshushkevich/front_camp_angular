@@ -2,7 +2,9 @@
     function AddTodoFormController(todosService, $state) {
         const self = this;
 
-
+        self.submit = () => {
+            
+        }
     }
 
     AddTodoFormController.$inject = ['todosService', '$state'];

@@ -15,7 +15,6 @@ const plumberConfig = {
 gulp.task('scripts', function() {
   return gulp.src([
         './node_modules/**/angular.min.js',
-        // './node_modules/**/angular-ui-router.min.js',
         './src/**/app.js', 
         './src/app/**/*.js'
     ])
@@ -35,7 +34,7 @@ gulp.task('styles', function() {
   });
 
 gulp.task('watch', function() {
-    gulp.watch('./src/scripts/**/*.js', ['scripts']);
+    gulp.watch('./src/**/*.js', ['scripts']);
     gulp.watch('./src/styles/**/*.css', ['styles']);
 });
 

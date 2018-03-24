@@ -1,30 +1,30 @@
 (function(angular) {
-    // function config($stateProvider, $locationProvider) {
-    //     $locationProvider.hashPrefix('!');
+    function config($stateProvider, $urlRouterProvider, $locationProvider) {
+        $locationProvider.hashPrefix('!');
 
-    //     var states = [
-    //         { 
-    //             name: 'home', 
-    //             url: '/', 
-    //             component: 'todos' 
-    //         },
-    //         {
-    //             name: add,
-    //             url: '/add-todo',
-    //             component: 'addTodoForm'
-    //         }
-    //     ];
+        var states = [
+            { 
+                name: 'home', 
+                url: '/', 
+                component: 'todos' 
+            },
+            {
+                name: 'add',
+                url: '/add-todo',
+                component: 'addTodoForm'
+            }
+        ];
 
-    //     states.forEach(function(state) {
-    //         $stateProvider.state(state);
-    //     });
+        states.forEach(function(state) {
+            $stateProvider.state(state);
+        });
 
-    //     // $stateProvider.state("otherwise", { url : '/'});
-    // }
+        $urlRouterProvider.otherwise('/');
+    }
 
-    // config.$inject = ['$stateProvider', '$locationProvider'];
-    console.log('asdasd')
+    config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+
     angular
-        .module('myAwesomeTodos', [/*'ui.router'*/])
-        // .config(config);
+        .module('myAwesomeTodos', ['ui.router'])
+        .config(config);
 })(window.angular);
