@@ -1,11 +1,13 @@
 <div>
     <button ng-click="$ctrl.addOne()">Add</button>
+    <hr>
 </div>
 
 <div>
     <button ng-click="$ctrl.resetSort()">Reset</button>
     <button ng-click="$ctrl.sortBy('description')">By name</button>
     <button ng-click="$ctrl.sortBy('createdAt')">By date</button>
+    <hr>
 </div>
 
 <div ng-repeat="todo in $ctrl.todos | orderBy:$ctrl.fieldName:$ctrl.reverse">    

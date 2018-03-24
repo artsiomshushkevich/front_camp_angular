@@ -1,11 +1,21 @@
-<form ng-submit="$ctrl.submit()">
-    <textarea 
-        ng-model="$ctrl.description" 
-        name="todoDescription" 
-        id="todo-description" 
-        cols="30" 
-        rows="10"
-    >
-    </textarea>
-    <input type="submit" id="submit" value="Submit"/>
+<form name="todoForm" ng-submit="$ctrl.submit()">
+    <div>
+        <textarea 
+            ng-model="$ctrl.description" 
+            name="todoDescription" 
+            id="todo-description" 
+            cols="30" 
+            rows="10"
+            ng-minlength="20"
+            required
+        >
+        </textarea>
+        <div>
+            <span ng-show="todoForm.todoDescription.$dirty && todoForm.todoDescription.$error.required">Description is required!</span>
+            <span ng-show="todoForm.todoDescription.$dirty && todoForm.todoDescription.$error.minlength">Description should be at least 20 symbols!</span>
+        </div>
+        
+    </div>
+    
+    <input type="submit" id="submit" value="Submit" ng-disabled="todoForm.$invalid"/>
 </form>
