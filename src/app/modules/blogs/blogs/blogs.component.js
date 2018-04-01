@@ -6,9 +6,6 @@
         }
 
         $onInit() {
-            this._blogsService.getAll()
-                .then(blogs => this.blogs = blogs);
-           
             this.fieldName = null;
             this.reverse = false
         }
@@ -47,7 +44,10 @@
     angular
         .module('myAwesomeBlogs')
         .component('blogs', {
-            templateUrl: '../templates/blogs/blogs.template.html',
-            controller: BlogsController
+            templateUrl: './blogs.template.html',
+            controller: BlogsController,
+            bindings: {
+                blogs: '<'
+            }
         });
 })(window.angular);

@@ -2,11 +2,16 @@
     function config($stateProvider, $urlRouterProvider, $locationProvider) {
         $locationProvider.hashPrefix('!');
 
-        var states = [
+        const states = [
             { 
                 name: 'home', 
                 url: '/blogs', 
-                component: 'blogs'
+                component: 'blogs',
+                resolve: {
+                    blogs: ['blogsService', (blogsService) => {
+                        return blogsService.getAll();
+                    }]
+                }
             },
             {
                 name: 'add',
@@ -19,7 +24,7 @@
                 component: 'updateBlog',
                 resolve: {
                     blog: ['blogsService', '$transition$', (blogsService, $transition$) => {
-                        return blogsService.getOne(+$transition$.params().blogId);
+                        return blogsService.getOne($transition$.params().blogId);
                     }]
                 }
             }
