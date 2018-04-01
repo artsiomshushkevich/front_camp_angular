@@ -1,0 +1,42 @@
+<form name="blogForm" ng-submit="submit({title: title, content: content})">
+    <div>
+        <div>
+            <label for="blog-title">Title:</label>
+        </div>
+        
+        <input
+            id="blog-title"
+            type="text" 
+            name="blogTitle" 
+            ng-model="title"
+            required
+        >
+        <div>
+            <span ng-show="blogForm.blogTitle.$dirty && blogForm.blogTitle.$error.required">Title is required!</span>
+        </div>
+    </div>
+    <div>
+        <div>
+            <label for="blog-content">blog-content</label>
+        </div>
+
+        <textarea 
+            ng-model="content" 
+            name="blogContent" 
+            id="blog-content" 
+            cols="30" 
+            rows="10"
+            ng-minlength="20"
+            required
+        >
+        </textarea>
+        
+        <div>
+            <span ng-show="blogForm.blogContent.$dirty && blogForm.blogContent.$error.required">Content is required!</span>
+            <span ng-show="blogForm.blogContent.$dirty && blogForm.blogContent.$error.minlength">Content should be at least 20 symbols!</span>
+        </div>
+        
+    </div>
+    
+    <input type="submit" id="submit" value="Submit" ng-disabled="blogForm.$invalid"/>
+</form>

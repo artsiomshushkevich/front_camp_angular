@@ -1,7 +1,3 @@
-.done-todo {
-    text-decoration: line-through;
-}
-
 textarea.ng-invalid.ng-dirty {
     border: 3px solid red;
 }

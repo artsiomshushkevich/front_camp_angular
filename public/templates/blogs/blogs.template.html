@@ -1,0 +1,27 @@
+<div>
+    <button ng-click="$ctrl.addOne()">Add</button>
+    <hr>
+</div>
+
+<div>
+    <button ng-click="$ctrl.resetSort()">Reset</button>
+    <button ng-click="$ctrl.sortBy('description')">By name</button>
+    <button ng-click="$ctrl.sortBy('createdAt')">By date</button>
+    <hr>
+</div>
+
+<div ng-repeat="blog in $ctrl.blogs | orderBy:$ctrl.fieldName:$ctrl.reverse">
+    <article>
+            <h2>{{blog.title}}</h2>
+            <div>
+                <span>{{blog.content}}</span>
+            </div>
+            <div>
+                <span>Created at {{$ctrl.formatBlogDate(blog.createdAt)}}</span>
+            </div>
+            <div>
+                <button ng-click="$ctrl.deleteOne(blog._id)">Delete</button>
+                <button ng-click="$ctrl.updateOne(blog._id)">Update</button>
+            </div>
+    </article>   
+</div>

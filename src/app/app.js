@@ -5,21 +5,21 @@
         var states = [
             { 
                 name: 'home', 
-                url: '/todos', 
-                component: 'todos'
+                url: '/blogs', 
+                component: 'blogs'
             },
             {
                 name: 'add',
-                url: '/todos/add',
-                component: 'addTodo'
+                url: '/blogs/add',
+                component: 'addBlog'
             },
             {
                 name: 'update',
-                url: '/todos/{todoId}/update',
-                component: 'updateTodo',
+                url: '/blogs/{blogId}/update',
+                component: 'updateBlog',
                 resolve: {
-                    todo: ['todosService', '$transition$', (todosService, $transition$) => {
-                        return todosService.getOne(+$transition$.params().todoId);
+                    blog: ['blogsService', '$transition$', (blogsService, $transition$) => {
+                        return blogsService.getOne(+$transition$.params().blogId);
                     }]
                 }
             }
@@ -29,13 +29,13 @@
             $stateProvider.state(state);
         });
 
-        $urlRouterProvider.otherwise('/todos');
+        $urlRouterProvider.otherwise('/blogs');
     }
 
     config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
     const app = angular
-        .module('myAwesomeTodos', ['ui.router', 'ngResource'])
+        .module('myAwesomeBlogs', ['ui.router', 'ngResource'])
         .config(config);
           
 })(window.angular);
