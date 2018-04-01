@@ -4,6 +4,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const webserver = require('gulp-webserver');
 const plumber = require('gulp-plumber');
 const babel = require('gulp-babel');
+const embedTemplates = require('gulp-angular-embed-templates');
 
 const plumberConfig = {
   handleError: function (err) {
@@ -20,17 +21,22 @@ gulp.task('scripts', function() {
         './src/app/**/*.js'
     ])
     .pipe(plumber(plumberConfig))
+    .pipe(sourcemaps.init())
     .pipe(babel({
         presets: ['env']
     }))
-    .pipe(sourcemaps.init())
+    .pipe(embedTemplates())
     .pipe(concat('app.js'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./public/js'));
 });
 
 gulp.task('styles', function() {
-    return gulp.src('./src/styles/main.css')
+    return gulp.src([
+            './src/styles/main.css',
+            './src/**/*.css'
+        ])
+        .pipe(concat('styles.css'))
         .pipe(gulp.dest('./public/css'));
   });
 
