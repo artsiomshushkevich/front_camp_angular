@@ -5,7 +5,6 @@
             this._$state = $state;
         }
 
-        
         submit(title, content) {
             this._blogsService.updateOne(this.blog._id, title, content)
                 .then(() => this._$state.go('home'));

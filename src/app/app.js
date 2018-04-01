@@ -9,7 +9,8 @@
                 component: 'blogs',
                 resolve: {
                     blogs: ['blogsService', (blogsService) => {
-                        return blogsService.getAll();
+                        return blogsService.getAll()
+                            .then(blogs => blogs);
                     }]
                 }
             },
