@@ -18,7 +18,9 @@ gulp.task('scripts', function() {
         './node_modules/**/angular.min.js',
         './node_modules/**/angular-resource.min.js',
         './src/**/app.js', 
-        './src/app/**/*.js'
+        './src/app/**/*component.js',
+        './src/app/**/*service.js',
+        './src/app/**/*directive.js',
     ])
     .pipe(plumber(plumberConfig))
     .pipe(sourcemaps.init())

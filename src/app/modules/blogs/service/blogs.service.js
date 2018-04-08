@@ -43,6 +43,10 @@
             return this._$resource(serverURL).save({}, newBlog)
                 .$promise.then((addedBlog) => {
                     addedBlog.createdAt = new Date(addedBlog.createdAt);
+                    if(blogs === null) {
+                        blogs = [];
+                    }
+                    
                     blogs.push(addedBlog);
 
                     return blogs;

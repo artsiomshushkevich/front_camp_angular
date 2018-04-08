@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/artsiomshushkevich/front_camp_angular#readme",
   "dependencies": {
+    "@uirouter/angularjs": "^1.0.7",
     "angular": "^1.6.9",
     "angular-resource": "^1.6.9"
   },
